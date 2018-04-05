@@ -1,0 +1,70 @@
+﻿@model PagedList.IPagedList<ProwatchWebApp.Models.project>  
+    @using PagedList.Mvc;
+@{
+    Layout = "~/Views/Shared/_ProWatchLayout.cshtml";
+}
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+
+    @using (Html.BeginForm("Index", "projects", FormMethod.Get))
+    {
+        <p>
+            Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+            <input type="submit" value="Search" />
+        </p>
+    }
+    <table id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>@Html.ActionLink("Project Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })</th>
+                <th>@Html.ActionLink("Project Status", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })</th>
+                <th>Material Incurred</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+            {
+            <tbody>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.projectName)
+                    </td>
+                    <td>@if (Html.DisplayFor(modelItem => item.projectStatu.projectStatusName).ToString() == "Completed")
+                    {
+                        <i class="fa fa-check" style="color:green">@Html.DisplayFor(modelItem => item.projectStatu.projectStatusName)</i>
+                            
+                        
+                    }
+                        @if (Html.DisplayFor(modelItem => item.projectStatu.projectStatusName).ToString() == "Not started")
+                        {
+                            <i class="fa fa-warning"  style="color:red">@Html.DisplayFor(modelItem => item.projectStatu.projectStatusName)</i>
+                        }
+                       
+                        
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.projectMaterial)</td>
+                    <td>
+                        @{ var id = item.projectID;
+                        <i><a class="fa fa-pencil-square-o" aria-hidden="true" href="@Url.Content( "Edit/" + id)"></a></i>
+                        }
+                    </td>
+                </tr>
+            </tbody>
+        }
+        <tfoot>
+            <tr>
+
+                <th>Project Name</th>
+                <th>Project Status</th>
+                <th>Material Incurred</th>
+                <th>Edit</th>
+            </tr>
+        </tfoot>
+    </table>
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Homepage",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>
+
+

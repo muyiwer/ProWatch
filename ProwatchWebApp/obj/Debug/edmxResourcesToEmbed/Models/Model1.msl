@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProWatchModelStoreContainer" CdmEntityContainer="ProWatchEntities1">
+    <EntitySetMapping Name="projects">
+      <EntityTypeMapping TypeName="ProWatchModel.project">
+        <MappingFragment StoreEntitySet="project">
+          <ScalarProperty Name="projectID" ColumnName="projectID" />
+          <ScalarProperty Name="projectName" ColumnName="projectName" />
+          <ScalarProperty Name="projectDescription" ColumnName="projectDescription" />
+          <ScalarProperty Name="projectMaterial" ColumnName="projectMaterial" />
+          <ScalarProperty Name="fileUrl" ColumnName="fileUrl" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateModified" ColumnName="dateModified" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="projectStatusID" ColumnName="projectStatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="projectStatus">
+      <EntityTypeMapping TypeName="ProWatchModel.projectStatu">
+        <MappingFragment StoreEntitySet="projectStatus">
+          <ScalarProperty Name="projectStatusID" ColumnName="projectStatusID" />
+          <ScalarProperty Name="projectStatusName" ColumnName="projectStatusName" />
+          <ScalarProperty Name="dateModified" ColumnName="dateModified" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="proUsers">
+      <EntityTypeMapping TypeName="ProWatchModel.proUser">
+        <MappingFragment StoreEntitySet="proUser">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateModified" ColumnName="dateModified" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reports">
+      <EntityTypeMapping TypeName="ProWatchModel.report">
+        <MappingFragment StoreEntitySet="report">
+          <ScalarProperty Name="reportID" ColumnName="reportID" />
+          <ScalarProperty Name="taskName" ColumnName="taskName" />
+          <ScalarProperty Name="reportDescription" ColumnName="reportDescription" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="projectStatusID" ColumnName="projectStatusID" />
+          <ScalarProperty Name="taskID" ColumnName="taskID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tasks">
+      <EntityTypeMapping TypeName="ProWatchModel.task">
+        <MappingFragment StoreEntitySet="task">
+          <ScalarProperty Name="taskID" ColumnName="taskID" />
+          <ScalarProperty Name="taskName" ColumnName="taskName" />
+          <ScalarProperty Name="observedBy" ColumnName="observedBy" />
+          <ScalarProperty Name="deadlineDate" ColumnName="deadlineDate" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateModified" ColumnName="dateModified" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="projectStatusID" ColumnName="projectStatusID" />
+          <ScalarProperty Name="assignTo" ColumnName="assignTo" />
+          <ScalarProperty Name="projectID" ColumnName="projectID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserProjects">
+      <EntityTypeMapping TypeName="ProWatchModel.UserProject">
+        <MappingFragment StoreEntitySet="UserProject">
+          <ScalarProperty Name="upID" ColumnName="upID" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="projectID" ColumnName="projectID" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ProwatchWebApp.Models.report>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_ProWatchLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.taskName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.reportDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.createdBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.projectStatu.projectStatusName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.proUser.firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.task.taskName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.taskName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.reportDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.createdBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.projectStatu.projectStatusName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.proUser.firstname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.task.taskName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.reportID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.reportID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.reportID })
+        </td>
+    </tr>
+}
+
+</table>

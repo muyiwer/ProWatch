@@ -1,0 +1,1107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{797A23ED-51B7-447D-9FD6-18547AB3AA1A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProwatchWebApp</RootNamespace>
+    <AssemblyName>ProwatchWebApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\projectsController.cs" />
+    <Compile Include="Controllers\proUsersController.cs" />
+    <Compile Include="Content\reportsController.cs" />
+    <Compile Include="Controllers\tasksController.cs" />
+    <Compile Include="Controllers\UserProjectsController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\project.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\projectStatu.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\proUser.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\report.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\task.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserProject.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="PorWatchFrontEnd\css\bootstrap-table.css" />
+    <Content Include="PorWatchFrontEnd\css\bootstrap-theme.css" />
+    <Content Include="PorWatchFrontEnd\css\bootstrap-theme.min.css" />
+    <Content Include="PorWatchFrontEnd\css\bootstrap.css" />
+    <Content Include="PorWatchFrontEnd\css\bootstrap.min.css" />
+    <Content Include="PorWatchFrontEnd\css\dashboard.css" />
+    <Content Include="PorWatchFrontEnd\css\datepicker.css" />
+    <Content Include="PorWatchFrontEnd\css\datepicker3.css" />
+    <Content Include="PorWatchFrontEnd\css\font-awesome.min.css" />
+    <Content Include="PorWatchFrontEnd\css\style.css" />
+    <Content Include="PorWatchFrontEnd\fonts\fontawesome-webfont.svg" />
+    <Content Include="PorWatchFrontEnd\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="PorWatchFrontEnd\images\la.png" />
+    <Content Include="PorWatchFrontEnd\images\ProWatch Logo.jpg" />
+    <Content Include="PorWatchFrontEnd\images\PROWATCH.png" />
+    <Content Include="PorWatchFrontEnd\images\PROWATCH2.png" />
+    <Content Include="PorWatchFrontEnd\js\bootstrap-datepicker.js" />
+    <Content Include="PorWatchFrontEnd\js\bootstrap.js" />
+    <Content Include="PorWatchFrontEnd\js\bootstrap.min.js" />
+    <Content Include="PorWatchFrontEnd\js\chart-data.js" />
+    <Content Include="PorWatchFrontEnd\js\chart.min.js" />
+    <Content Include="PorWatchFrontEnd\js\custom.js" />
+    <Content Include="PorWatchFrontEnd\js\easypiechart-data.js" />
+    <Content Include="PorWatchFrontEnd\js\easypiechart.js" />
+    <Content Include="PorWatchFrontEnd\js\html5shiv.min.js" />
+    <Content Include="PorWatchFrontEnd\js\index.js" />
+    <Content Include="PorWatchFrontEnd\js\jquery-1.11.1.min.js" />
+    <Content Include="PorWatchFrontEnd\js\lumino.glyphs.js" />
+    <Content Include="PorWatchFrontEnd\js\npm.js" />
+    <Content Include="PorWatchFrontEnd\js\respond.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\charts.html" />
+    <Content Include="PorWatchFrontEnd\Template\css\animate.css" />
+    <Content Include="PorWatchFrontEnd\Template\css\bootstrap-table.css" />
+    <Content Include="PorWatchFrontEnd\Template\css\bootstrap-theme.css" />
+    <Content Include="PorWatchFrontEnd\Template\css\bootstrap-theme.min.css" />
+    <Content Include="PorWatchFrontEnd\Template\css\bootstrap.css" />
+    <Content Include="PorWatchFrontEnd\Template\css\bootstrap.min.css" />
+    <Content Include="PorWatchFrontEnd\Template\css\datepicker.css" />
+    <Content Include="PorWatchFrontEnd\Template\css\datepicker3.css" />
+    <Content Include="PorWatchFrontEnd\Template\css\font-awesome.min.css" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\barRating\barRating.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\barRating\jquery.barrating.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\bootstrap\css\bootstrap.min.css" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\bootstrap\js\bootstrap.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\bootstrap\js\popper.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\c3\c3-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\c3\c3.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\c3\d3.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\calendar-2\moment.latest.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\calendar-2\pignose.calendar.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\calendar-2\pignose.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\calendar-2\prism.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\calendar-2\semantic.ui.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\calendar\fullcalendar-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\calendar\fullcalendar.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\chart-amchart\amchart-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\chart-amchart\amcharts.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\chart-amchart\ammap.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\chart-amchart\amstock.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\chart-amchart\export.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\chart-amchart\light.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\chart-amchart\pie.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\chart-amchart\serial.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\chart-amchart\worldLow.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\chart-js\Chart.bundle.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\chart-js\chartjs-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\chartist\chartist-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\chartist\chartist-plugin-tooltip.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\chartist\chartist.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\chat-widget\chat-widget-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\circle-progress\circle-progress-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\circle-progress\circle-progress.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\datamap\d3.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\datamap\datamap-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\datamap\datamaps.world.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\datamap\topojson.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\datatables\cdn.datatables.net\buttons\1.2.2\js\buttons.flash.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\datatables\cdn.datatables.net\buttons\1.2.2\js\buttons.html5.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\datatables\cdn.datatables.net\buttons\1.2.2\js\buttons.print.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\datatables\cdn.datatables.net\buttons\1.2.2\js\dataTables.buttons.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\datatables\cdn.rawgit.com\bpampuch\pdfmake\0.1.18\build\pdfmake.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\datatables\cdn.rawgit.com\bpampuch\pdfmake\0.1.18\build\vfs_fonts.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\datatables\cdn.rawgit.com\google\code-prettify\master\loader\run_prettify2102.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\datatables\cdnjs.cloudflare.com\ajax\libs\jqueryui-touch-punch\0.2.3\jquery.ui.touch-punch.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\datatables\cdnjs.cloudflare.com\ajax\libs\jszip\2.5.0\jszip.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\datatables\datatables-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\datatables\datatables.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\datepicker\bootstrap-datepicker.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\dropzone\dropzone.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\easing\jquery.easing.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\easing\stepup-form-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\echart\dashboard1-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\echart\echarts-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\echart\echarts.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\flot-chart\curvedLines.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\flot-chart\excanvas.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\flot-chart\flot-chart-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\flot-chart\flot-tooltip\jquery.flot.tooltip.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\flot-chart\jquery.flot.categories.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\flot-chart\jquery.flot.crosshair.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\flot-chart\jquery.flot.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\flot-chart\jquery.flot.pie.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\flot-chart\jquery.flot.resize.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\flot-chart\jquery.flot.stack.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\flot-chart\jquery.flot.threshold.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\flot-chart\jquery.flot.time.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\form-validation\jquery.validate-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\form-validation\jquery.validate.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\gmap\gmap.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\gmap\gmapApi.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\gmap\gmaps.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\google-chart\google-charts.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\google-chart\google-jsapi.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\granim\granim-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\granim\granim.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\highchart\highcharts-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\highchart\highcharts-modules-exporting.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\highchart\highcharts-more.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\highchart\highcharts.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\html5-editor\bootstrap-wysihtml5.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\html5-editor\wysihtml5-0.3.0.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\html5-editor\wysihtml5-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\jquery-ui\jquery-ui.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\jquery-ui\jquery.ui.touch-punch.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\jquery\jquery.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\jsgrid\db.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\jsgrid\fields\jsgrid.field.checkbox.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\jsgrid\fields\jsgrid.field.control.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\jsgrid\fields\jsgrid.field.number.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\jsgrid\fields\jsgrid.field.select.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\jsgrid\fields\jsgrid.field.text.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\jsgrid\fields\jsgrid.field.textarea.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\jsgrid\jsgrid-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\jsgrid\jsgrid.core.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\jsgrid\jsgrid.field.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\jsgrid\jsgrid.load-indicator.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\jsgrid\jsgrid.load-strategies.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\jsgrid\jsgrid.sort-strategies.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\jsgrid\jsgrid.validation.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\justgage\justgage.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\justgage\justgage.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\justgage\raphael-min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\knob\jquery.knob.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\knob\knob.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\line-progress\jquery.lineProgressbar.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\line-progress\line-progress-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\menubar\sidebar.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\metismenu\jquery.slimscroll.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\metismenu\metismenu.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\metismenu\metismenu.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\moment\moment.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\morris-chart\dashboard1-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\morris-chart\morris-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\morris-chart\morris.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\morris-chart\raphael-min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\nestable\jquery.nestable.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\nestable\nestable.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\owl-carousel\owl.carousel-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\owl-carousel\owl.carousel.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\peitychart\jquery.peity.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\peitychart\peitychart.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\portlets\portlets-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\portlets\portlets.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\preloader\pace.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\rangeSlider\ion.rangeSlider.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\rangeSlider\moment-with-locales.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\rangeSlider\moment.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\rangeSlider\rangeslider.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\rating1\jRate.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\rating1\jRate.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\rickshaw\d3.layout.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\rickshaw\d3.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\rickshaw\rickshaw-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\rickshaw\rickshaw.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\scrollable\holder.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\scrollable\jquery-asScrollable.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\scrollable\jquery-asScrollbar.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\scrollable\scrollable.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\select2\select2.full.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\sparklinechart\jquery.sparkline.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\sparklinechart\sparkline.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\sticky-kit-master\dist\sticky-kit.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\sweetalert\sweetalert.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\sweetalert\sweetalert.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\toastr\toastr.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\toastr\toastr.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\vector-map\country\jquery.vmap.algeria.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\vector-map\country\jquery.vmap.argentina.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\vector-map\country\jquery.vmap.brazil.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\vector-map\country\jquery.vmap.europe.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\vector-map\country\jquery.vmap.france.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\vector-map\country\jquery.vmap.germany.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\vector-map\country\jquery.vmap.greece.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\vector-map\country\jquery.vmap.iran.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\vector-map\country\jquery.vmap.iraq.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\vector-map\country\jquery.vmap.russia.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\vector-map\country\jquery.vmap.tunisia.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\vector-map\country\jquery.vmap.turkey.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\vector-map\country\jquery.vmap.usa.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\vector-map\country\jquery.vmap.world.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\vector-map\jquery.vmap.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\vector-map\jquery.vmap.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\vector-map\jquery.vmap.sampledata.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\vector-map\vector.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\weather\jquery.simpleWeather.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\lib\weather\weather-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\css\spinners.css" />
+    <Content Include="PorWatchFrontEnd\Template\css\style.css" />
+    <Content Include="PorWatchFrontEnd\Template\css\styles.css" />
+    <Content Include="PorWatchFrontEnd\Template\elements.html" />
+    <Content Include="PorWatchFrontEnd\Template\fonts\fontawesome-webfont.svg" />
+    <Content Include="PorWatchFrontEnd\Template\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flag-icon.min.css" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ad.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ae.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\af.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ag.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ai.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\al.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\am.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ao.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\aq.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ar.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\as.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\at.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\au.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\aw.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ax.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\az.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ba.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\bb.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\bd.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\be.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\bf.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\bg.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\bh.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\bi.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\bj.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\bl.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\bm.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\bn.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\bo.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\bq.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\br.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\bs.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\bt.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\bv.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\bw.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\by.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\bz.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ca.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\cc.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\cd.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\cf.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\cg.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ch.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ci.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ck.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\cl.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\cm.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\cn.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\co.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\cr.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\cu.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\cv.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\cw.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\cx.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\cy.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\cz.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\de.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\dj.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\dk.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\dm.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\do.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\dz.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ec.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ee.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\eg.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\eh.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\er.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\es.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\et.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\fi.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\fj.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\fk.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\fm.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\fo.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\fr.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ga.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\gb.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\gd.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ge.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\gf.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\gg.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\gh.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\gi.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\gl.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\gm.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\gn.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\gp.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\gq.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\gr.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\gs.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\gt.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\gu.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\gw.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\gy.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\hk.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\hm.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\hn.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\hr.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ht.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\hu.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\id.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ie.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\il.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\im.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\in.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\io.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\iq.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ir.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\is.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\it.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\je.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\jm.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\jo.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\jp.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ke.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\kg.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\kh.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ki.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\km.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\kn.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\kp.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\kr.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\kw.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ky.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\kz.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\la.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\lb.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\lc.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\li.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\lk.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\lr.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ls.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\lt.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\lu.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\lv.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ly.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ma.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\mc.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\md.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\me.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\mf.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\mg.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\mh.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\mk.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ml.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\mm.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\mn.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\mo.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\mp.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\mq.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\mr.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ms.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\mt.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\mu.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\mv.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\mw.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\mx.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\my.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\mz.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\na.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\nc.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ne.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\nf.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ng.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ni.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\nl.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\no.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\np.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\nr.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\nu.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\nz.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\om.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\pa.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\pe.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\pf.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\pg.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ph.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\pk.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\pl.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\pm.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\pn.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\pr.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ps.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\pt.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\pw.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\py.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\qa.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\re.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ro.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\rs.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ru.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\rw.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\sa.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\sb.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\sc.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\sd.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\se.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\sg.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\sh.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\si.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\sj.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\sk.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\sl.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\sm.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\sn.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\so.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\sr.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ss.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\st.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\sv.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\sx.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\sy.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\sz.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\tc.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\td.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\tf.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\tg.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\th.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\tj.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\tk.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\tl.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\tm.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\tn.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\to.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\tr.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\tt.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\tv.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\tw.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\tz.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ua.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ug.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\um.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\us.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\uy.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\uz.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\va.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\vc.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ve.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\vg.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\vi.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\vn.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\vu.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\wf.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ws.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\ye.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\yt.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\za.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\zm.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\flag-icon-css\flags\zw.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\font-awesome\css\font-awesome.min.css" />
+    <Content Include="PorWatchFrontEnd\Template\icons\font-awesome\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-arrows-10.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-basic-10.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-basic-elaboration-10.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-ecommerce-10.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-music-10.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-software-10.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-weather-10.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\linea.css" />
+    <Content Include="PorWatchFrontEnd\Template\icons\material-design-iconic-font\css\materialdesignicons.min.css" />
+    <Content Include="PorWatchFrontEnd\Template\icons\material-design-iconic-font\fonts\materialdesignicons-webfontdc99.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\simple-line-icons\css\simple-line-icons.css" />
+    <Content Include="PorWatchFrontEnd\Template\icons\simple-line-icons\fonts\Simple-Line-Icons4c82.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\themify-icons\fonts\themify9f24.svg" />
+    <Content Include="PorWatchFrontEnd\Template\icons\themify-icons\themify-icons.css" />
+    <Content Include="PorWatchFrontEnd\Template\icons\weather-icons\css\weather-icons.min.css" />
+    <Content Include="PorWatchFrontEnd\Template\icons\weather-icons\fonts\weathericons-regular-webfont.svg" />
+    <Content Include="PorWatchFrontEnd\Template\image\la.png" />
+    <Content Include="PorWatchFrontEnd\Template\index.html" />
+    <Content Include="PorWatchFrontEnd\Template\js\bootstrap-datepicker.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\bootstrap.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\bootstrap.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\chart-data.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\chart.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\custom.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\custom.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\easypiechart-data.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\easypiechart.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\html5shiv.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\jquery-1.11.1.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\jquery-2.2.4.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\jquery-3.3.1.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\barRating\barRating.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\barRating\jquery.barrating.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\bootstrap\css\bootstrap.min.css" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\bootstrap\js\bootstrap.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\bootstrap\js\popper.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\c3\c3-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\c3\c3.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\c3\d3.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\calendar-2\moment.latest.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\calendar-2\pignose.calendar.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\calendar-2\pignose.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\calendar-2\prism.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\calendar-2\semantic.ui.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\calendar\fullcalendar-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\calendar\fullcalendar.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\chart-amchart\amchart-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\chart-amchart\amcharts.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\chart-amchart\ammap.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\chart-amchart\amstock.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\chart-amchart\export.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\chart-amchart\light.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\chart-amchart\pie.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\chart-amchart\serial.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\chart-amchart\worldLow.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\chart-js\Chart.bundle.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\chart-js\chartjs-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\chartist\chartist-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\chartist\chartist-plugin-tooltip.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\chartist\chartist.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\chat-widget\chat-widget-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\circle-progress\circle-progress-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\circle-progress\circle-progress.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\datamap\d3.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\datamap\datamap-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\datamap\datamaps.world.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\datamap\topojson.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\datatables\cdn.datatables.net\buttons\1.2.2\js\buttons.flash.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\datatables\cdn.datatables.net\buttons\1.2.2\js\buttons.html5.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\datatables\cdn.datatables.net\buttons\1.2.2\js\buttons.print.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\datatables\cdn.datatables.net\buttons\1.2.2\js\dataTables.buttons.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\datatables\cdn.rawgit.com\bpampuch\pdfmake\0.1.18\build\pdfmake.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\datatables\cdn.rawgit.com\bpampuch\pdfmake\0.1.18\build\vfs_fonts.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\datatables\cdn.rawgit.com\google\code-prettify\master\loader\run_prettify2102.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\datatables\cdnjs.cloudflare.com\ajax\libs\jqueryui-touch-punch\0.2.3\jquery.ui.touch-punch.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\datatables\cdnjs.cloudflare.com\ajax\libs\jszip\2.5.0\jszip.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\datatables\datatables-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\datatables\datatables.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\datepicker\bootstrap-datepicker.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\dropzone\dropzone.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\easing\jquery.easing.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\easing\stepup-form-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\echart\dashboard1-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\echart\echarts-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\echart\echarts.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\flot-chart\curvedLines.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\flot-chart\excanvas.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\flot-chart\flot-chart-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\flot-chart\flot-tooltip\jquery.flot.tooltip.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\flot-chart\jquery.flot.categories.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\flot-chart\jquery.flot.crosshair.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\flot-chart\jquery.flot.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\flot-chart\jquery.flot.pie.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\flot-chart\jquery.flot.resize.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\flot-chart\jquery.flot.stack.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\flot-chart\jquery.flot.threshold.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\flot-chart\jquery.flot.time.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\form-validation\jquery.validate-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\form-validation\jquery.validate.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\gmap\gmap.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\gmap\gmapApi.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\gmap\gmaps.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\google-chart\google-charts.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\google-chart\google-jsapi.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\granim\granim-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\granim\granim.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\highchart\highcharts-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\highchart\highcharts-modules-exporting.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\highchart\highcharts-more.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\highchart\highcharts.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\html5-editor\bootstrap-wysihtml5.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\html5-editor\wysihtml5-0.3.0.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\html5-editor\wysihtml5-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\jquery-ui\jquery-ui.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\jquery-ui\jquery.ui.touch-punch.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\jquery\jquery.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\jsgrid\db.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\jsgrid\fields\jsgrid.field.checkbox.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\jsgrid\fields\jsgrid.field.control.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\jsgrid\fields\jsgrid.field.number.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\jsgrid\fields\jsgrid.field.select.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\jsgrid\fields\jsgrid.field.text.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\jsgrid\fields\jsgrid.field.textarea.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\jsgrid\jsgrid-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\jsgrid\jsgrid.core.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\jsgrid\jsgrid.field.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\jsgrid\jsgrid.load-indicator.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\jsgrid\jsgrid.load-strategies.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\jsgrid\jsgrid.sort-strategies.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\jsgrid\jsgrid.validation.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\justgage\justgage.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\justgage\justgage.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\justgage\raphael-min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\knob\jquery.knob.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\knob\knob.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\line-progress\jquery.lineProgressbar.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\line-progress\line-progress-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\menubar\sidebar.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\metismenu\jquery.slimscroll.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\metismenu\metismenu.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\metismenu\metismenu.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\moment\moment.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\morris-chart\dashboard1-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\morris-chart\morris-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\morris-chart\morris.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\morris-chart\raphael-min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\nestable\jquery.nestable.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\nestable\nestable.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\owl-carousel\owl.carousel-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\owl-carousel\owl.carousel.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\peitychart\jquery.peity.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\peitychart\peitychart.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\portlets\portlets-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\portlets\portlets.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\preloader\pace.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\rangeSlider\ion.rangeSlider.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\rangeSlider\moment-with-locales.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\rangeSlider\moment.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\rangeSlider\rangeslider.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\rating1\jRate.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\rating1\jRate.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\rickshaw\d3.layout.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\rickshaw\d3.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\rickshaw\rickshaw-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\rickshaw\rickshaw.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\scrollable\holder.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\scrollable\jquery-asScrollable.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\scrollable\jquery-asScrollbar.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\scrollable\scrollable.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\select2\select2.full.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\sparklinechart\jquery.sparkline.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\sparklinechart\sparkline.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\sticky-kit-master\dist\sticky-kit.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\sweetalert\sweetalert.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\sweetalert\sweetalert.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\toastr\toastr.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\toastr\toastr.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\vector-map\country\jquery.vmap.algeria.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\vector-map\country\jquery.vmap.argentina.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\vector-map\country\jquery.vmap.brazil.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\vector-map\country\jquery.vmap.europe.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\vector-map\country\jquery.vmap.france.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\vector-map\country\jquery.vmap.germany.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\vector-map\country\jquery.vmap.greece.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\vector-map\country\jquery.vmap.iran.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\vector-map\country\jquery.vmap.iraq.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\vector-map\country\jquery.vmap.russia.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\vector-map\country\jquery.vmap.tunisia.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\vector-map\country\jquery.vmap.turkey.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\vector-map\country\jquery.vmap.usa.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\vector-map\country\jquery.vmap.world.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\vector-map\jquery.vmap.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\vector-map\jquery.vmap.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\vector-map\jquery.vmap.sampledata.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\vector-map\vector.init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\weather\jquery.simpleWeather.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lib\weather\weather-init.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\lumino.glyphs.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\npm.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\respond.min.js" />
+    <Content Include="PorWatchFrontEnd\Template\js\scripts.js" />
+    <Content Include="PorWatchFrontEnd\Template\panels.html" />
+    <Content Include="PorWatchFrontEnd\Template\table-datatable.html" />
+    <Content Include="PorWatchFrontEnd\Template\widgets.html" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PorWatchFrontEnd\css\bootstrap-theme.css.map" />
+    <Content Include="PorWatchFrontEnd\css\bootstrap-theme.min.css.map" />
+    <Content Include="PorWatchFrontEnd\css\bootstrap.css.map" />
+    <Content Include="PorWatchFrontEnd\css\bootstrap.min.css.map" />
+    <Content Include="PorWatchFrontEnd\sass\.sass-cache\deff34d1f5b7167181b556002c25068d6adc024d\styles.scssc" />
+    <Content Include="PorWatchFrontEnd\sass\styles.scss" />
+    <Content Include="PorWatchFrontEnd\tables\data1.json" />
+    <Content Include="PorWatchFrontEnd\tables\data2.json" />
+    <Content Include="PorWatchFrontEnd\Template\css\bootstrap-theme.css.map" />
+    <Content Include="PorWatchFrontEnd\Template\css\bootstrap-theme.min.css.map" />
+    <Content Include="PorWatchFrontEnd\Template\css\bootstrap.css.map" />
+    <Content Include="PorWatchFrontEnd\Template\css\bootstrap.min.css.map" />
+    <Content Include="PorWatchFrontEnd\Template\fonts\fontawesome-webfont.eot" />
+    <Content Include="PorWatchFrontEnd\Template\fonts\fontawesome-webfont.ttf" />
+    <Content Include="PorWatchFrontEnd\Template\fonts\fontawesome-webfont.woff" />
+    <Content Include="PorWatchFrontEnd\Template\fonts\fontawesome-webfont.woff2" />
+    <Content Include="PorWatchFrontEnd\Template\fonts\FontAwesome.otf" />
+    <Content Include="PorWatchFrontEnd\Template\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="PorWatchFrontEnd\Template\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="PorWatchFrontEnd\Template\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="PorWatchFrontEnd\Template\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="PorWatchFrontEnd\Template\icons\font-awesome\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="PorWatchFrontEnd\Template\icons\font-awesome\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="PorWatchFrontEnd\Template\icons\font-awesome\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="PorWatchFrontEnd\Template\icons\font-awesome\fonts\fontawesome-webfont3e6e.woff2" />
+    <Content Include="PorWatchFrontEnd\Template\icons\font-awesome\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-arrows-10.eot" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-arrows-10.ttf" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-arrows-10.woff" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-arrows-10d41d.eot" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-basic-10.eot" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-basic-10.ttf" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-basic-10.woff" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-basic-10d41d.eot" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-basic-elaboration-10.eot" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-basic-elaboration-10.ttf" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-basic-elaboration-10.woff" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-basic-elaboration-10d41d.eot" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-ecommerce-10.eot" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-ecommerce-10.ttf" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-ecommerce-10.woff" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-ecommerce-10d41d.eot" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-music-10.eot" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-music-10.ttf" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-music-10.woff" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-music-10d41d.eot" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-software-10.eot" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-software-10.ttf" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-software-10.woff" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-software-10d41d.eot" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-weather-10.eot" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-weather-10.ttf" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-weather-10.woff" />
+    <Content Include="PorWatchFrontEnd\Template\icons\linea-icons\fonts\linea-weather-10d41d.eot" />
+    <Content Include="PorWatchFrontEnd\Template\icons\material-design-iconic-font\fonts\materialdesignicons-webfontd41d.eot" />
+    <Content Include="PorWatchFrontEnd\Template\icons\material-design-iconic-font\fonts\materialdesignicons-webfontdc99.eot" />
+    <Content Include="PorWatchFrontEnd\Template\icons\material-design-iconic-font\fonts\materialdesignicons-webfontdc99.ttf" />
+    <Content Include="PorWatchFrontEnd\Template\icons\material-design-iconic-font\fonts\materialdesignicons-webfontdc99.woff" />
+    <Content Include="PorWatchFrontEnd\Template\icons\material-design-iconic-font\fonts\materialdesignicons-webfontdc99.woff2" />
+    <Content Include="PorWatchFrontEnd\Template\icons\simple-line-icons\fonts\Simple-Line-Icons4c82.eot" />
+    <Content Include="PorWatchFrontEnd\Template\icons\simple-line-icons\fonts\Simple-Line-Icons4c82.ttf" />
+    <Content Include="PorWatchFrontEnd\Template\icons\simple-line-icons\fonts\Simple-Line-Icons4c82.woff" />
+    <Content Include="PorWatchFrontEnd\Template\icons\simple-line-icons\fonts\Simple-Line-Icons4c82.woff2" />
+    <Content Include="PorWatchFrontEnd\Template\icons\simple-line-icons\fonts\Simple-Line-Iconsd41d.eot" />
+    <Content Include="PorWatchFrontEnd\Template\icons\themify-icons\fonts\themify.ttf" />
+    <Content Include="PorWatchFrontEnd\Template\icons\themify-icons\fonts\themify.woff" />
+    <Content Include="PorWatchFrontEnd\Template\icons\themify-icons\fonts\themify9f24.eot" />
+    <Content Include="PorWatchFrontEnd\Template\icons\themify-icons\fonts\themifyd41d.eot" />
+    <Content Include="PorWatchFrontEnd\Template\icons\weather-icons\fonts\weathericons-regular-webfont.eot" />
+    <Content Include="PorWatchFrontEnd\Template\icons\weather-icons\fonts\weathericons-regular-webfont.ttf" />
+    <Content Include="PorWatchFrontEnd\Template\icons\weather-icons\fonts\weathericons-regular-webfont.woff" />
+    <Content Include="PorWatchFrontEnd\Template\icons\weather-icons\fonts\weathericons-regular-webfont.woff2" />
+    <Content Include="PorWatchFrontEnd\Template\sass\.sass-cache\deff34d1f5b7167181b556002c25068d6adc024d\styles.scssc" />
+    <Content Include="PorWatchFrontEnd\Template\sass\styles.scss" />
+    <Content Include="PorWatchFrontEnd\Template\tables\data1.json" />
+    <Content Include="PorWatchFrontEnd\Template\tables\data2.json" />
+    <Content Include="PorWatchFrontEnd\fonts\fontawesome-webfont.eot" />
+    <Content Include="PorWatchFrontEnd\fonts\fontawesome-webfont.ttf" />
+    <Content Include="PorWatchFrontEnd\fonts\fontawesome-webfont.woff" />
+    <Content Include="PorWatchFrontEnd\fonts\fontawesome-webfont.woff2" />
+    <Content Include="PorWatchFrontEnd\fonts\FontAwesome.otf" />
+    <Content Include="PorWatchFrontEnd\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="PorWatchFrontEnd\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="PorWatchFrontEnd\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="PorWatchFrontEnd\fonts\glyphicons-halflings-regular.woff2" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\proUsers\Create.cshtml" />
+    <Content Include="Views\proUsers\Delete.cshtml" />
+    <Content Include="Views\proUsers\Details.cshtml" />
+    <Content Include="Views\proUsers\Edit.cshtml" />
+    <Content Include="Views\proUsers\Index.cshtml" />
+    <Content Include="Views\proUsers\SignIn.cshtml" />
+    <Content Include="Views\projects\Create.cshtml" />
+    <Content Include="Views\projects\Delete.cshtml" />
+    <Content Include="Views\projects\Details.cshtml" />
+    <Content Include="Views\projects\Edit.cshtml" />
+    <Content Include="Views\projects\Index.cshtml" />
+    <Content Include="Views\Shared\_ProWatchLayout.cshtml" />
+    <Content Include="Views\projects\Dashboard.cshtml" />
+    <Content Include="Views\projects\UploadFile.cshtml" />
+    <Content Include="Views\tasks\Create.cshtml" />
+    <Content Include="Views\tasks\Delete.cshtml" />
+    <Content Include="Views\tasks\Details.cshtml" />
+    <Content Include="Views\tasks\Edit.cshtml" />
+    <Content Include="Views\tasks\Index.cshtml" />
+    <Content Include="Views\reports\Create.cshtml" />
+    <Content Include="Views\reports\Delete.cshtml" />
+    <Content Include="Views\reports\Details.cshtml" />
+    <Content Include="Views\reports\Edit.cshtml" />
+    <Content Include="Views\reports\Index.cshtml" />
+    <Content Include="Views\projects\AddUserToProject.cshtml" />
+    <Content Include="Views\UserProjects\Create.cshtml" />
+    <Content Include="Views\UserProjects\Delete.cshtml" />
+    <Content Include="Views\UserProjects\Details.cshtml" />
+    <Content Include="Views\UserProjects\Edit.cshtml" />
+    <Content Include="Views\UserProjects\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="File\CrunchedImage\" />
+    <Folder Include="File\Image\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57995</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:57995/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

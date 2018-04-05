@@ -1,0 +1,98 @@
+﻿@model ProwatchWebApp.Models.project
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>project</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.projectName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.projectName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.projectDescription)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.projectDescription)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.projectMaterial)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.projectMaterial)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.fileUrl)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.fileUrl)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.dateCreated)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.dateCreated)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.dateModified)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.dateModified)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.createdBy)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.createdBy)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.projectStatu.projectStatusName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.projectStatu.projectStatusName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.proUser.firstname)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.proUser.firstname)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.projectID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>
