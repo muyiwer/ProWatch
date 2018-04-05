@@ -1,0 +1,59 @@
+﻿@model PagedList.IPagedList<ProwatchWebApp.Models.task>
+@using PagedList.Mvc;
+@{
+    Layout = "~/Views/Shared/_ProWatchLayout.cshtml";
+}
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+
+    @using (Html.BeginForm("Index", "projects", FormMethod.Get))
+    {
+        <p>
+            Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+            <input type="submit" value="Search" />
+        </p>
+    }
+    <table id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>@Html.ActionLink("Task", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })</th>
+                <th>@Html.ActionLink("Status", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })</th>
+                <th>Assigned To</th>
+                <th>Update</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+            {
+            <tbody>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.taskName)
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.projectStatu.projectStatusName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.assignTo)</td>
+                    <td>
+                        @Html.ActionLink("Edits", "Edit", new { id = item.taskID }) |
+                        @Html.ActionLink("Detail", "Details", new { id = item.taskID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.taskID })
+                    </td>
+                </tr>
+            </tbody>
+        }
+        <tfoot>
+            <tr>
+
+                <th>Task</th>
+                <th>Status</th>
+                <th>Assigned To</th>
+                <th>Update</th>
+            </tr>
+        </tfoot>
+    </table>
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Homepage",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>
+
+
+

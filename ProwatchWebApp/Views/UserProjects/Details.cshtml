@@ -1,0 +1,43 @@
+﻿@model ProwatchWebApp.Models.UserProject
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_ProWatchLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UserProject</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.createdBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.createdBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.project.projectName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.project.projectName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.proUser.firstname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.proUser.firstname)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.upID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

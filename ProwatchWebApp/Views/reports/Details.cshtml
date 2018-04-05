@@ -1,0 +1,67 @@
+﻿@model ProwatchWebApp.Models.report
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_ProWatchLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>report</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.taskName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.taskName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.reportDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.reportDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.createdBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.createdBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.projectStatu.projectStatusName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.projectStatu.projectStatusName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.proUser.firstname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.proUser.firstname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.task.taskName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.task.taskName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.reportID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,626 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ProWatchModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="project">
+          <Key>
+            <PropertyRef Name="projectID" />
+          </Key>
+          <Property Name="projectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="projectName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="projectDescription" Type="varchar" MaxLength="255" />
+          <Property Name="projectMaterial" Type="varchar" MaxLength="255" />
+          <Property Name="fileUrl" Type="varchar" MaxLength="255" />
+          <Property Name="dateCreated" Type="datetime2" Precision="7" />
+          <Property Name="dateModified" Type="datetime2" Precision="7" />
+          <Property Name="createdBy" Type="varchar" MaxLength="255" />
+          <Property Name="userID" Type="int" Nullable="false" />
+          <Property Name="projectStatusID" Type="int" />
+        </EntityType>
+        <EntityType Name="projectStatus">
+          <Key>
+            <PropertyRef Name="projectStatusID" />
+          </Key>
+          <Property Name="projectStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="projectStatusName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="dateModified" Type="datetime2" Precision="7" />
+          <Property Name="dateCreated" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="proUser">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstname" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="lastname" Type="varchar" MaxLength="255" />
+          <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="phoneNumber" Type="varchar" MaxLength="50" />
+          <Property Name="dateCreated" Type="datetime2" Precision="7" />
+          <Property Name="dateModified" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="report">
+          <Key>
+            <PropertyRef Name="reportID" />
+          </Key>
+          <Property Name="reportID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="taskName" Type="varchar" MaxLength="255" />
+          <Property Name="reportDescription" Type="varchar" MaxLength="255" />
+          <Property Name="createdBy" Type="varchar" MaxLength="255" />
+          <Property Name="userID" Type="int" Nullable="false" />
+          <Property Name="projectStatusID" Type="int" />
+          <Property Name="taskID" Type="int" />
+        </EntityType>
+        <EntityType Name="task">
+          <Key>
+            <PropertyRef Name="taskID" />
+          </Key>
+          <Property Name="taskID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="taskName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="observedBy" Type="varchar" MaxLength="255" />
+          <Property Name="deadlineDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="dateCreated" Type="datetime2" Precision="7" />
+          <Property Name="dateModified" Type="datetime2" Precision="7" />
+          <Property Name="createdBy" Type="varchar" MaxLength="255" />
+          <Property Name="userID" Type="int" Nullable="false" />
+          <Property Name="projectStatusID" Type="int" />
+          <Property Name="assignTo" Type="varchar" MaxLength="250" />
+          <Property Name="projectID" Type="int" />
+        </EntityType>
+        <EntityType Name="UserProject">
+          <Key>
+            <PropertyRef Name="upID" />
+          </Key>
+          <Property Name="upID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="createdBy" Type="varchar" MaxLength="255" />
+          <Property Name="projectID" Type="int" />
+          <Property Name="userID" Type="int" />
+        </EntityType>
+        <Association Name="FK__project__project__1B0907CE">
+          <End Role="projectStatus" Type="Self.projectStatus" Multiplicity="0..1" />
+          <End Role="project" Type="Self.project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="projectStatus">
+              <PropertyRef Name="projectStatusID" />
+            </Principal>
+            <Dependent Role="project">
+              <PropertyRef Name="projectStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__project__userID__1A14E395">
+          <End Role="proUser" Type="Self.proUser" Multiplicity="1" />
+          <End Role="project" Type="Self.project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proUser">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="project">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__report__projectS__276EDEB3">
+          <End Role="projectStatus" Type="Self.projectStatus" Multiplicity="0..1" />
+          <End Role="report" Type="Self.report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="projectStatus">
+              <PropertyRef Name="projectStatusID" />
+            </Principal>
+            <Dependent Role="report">
+              <PropertyRef Name="projectStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__report__taskID__286302EC">
+          <End Role="task" Type="Self.task" Multiplicity="0..1" />
+          <End Role="report" Type="Self.report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="task">
+              <PropertyRef Name="taskID" />
+            </Principal>
+            <Dependent Role="report">
+              <PropertyRef Name="taskID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__report__userID__267ABA7A">
+          <End Role="proUser" Type="Self.proUser" Multiplicity="1" />
+          <End Role="report" Type="Self.report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proUser">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="report">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__task__projectID__2D27B809">
+          <End Role="project" Type="Self.project" Multiplicity="0..1" />
+          <End Role="task" Type="Self.task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project">
+              <PropertyRef Name="projectID" />
+            </Principal>
+            <Dependent Role="task">
+              <PropertyRef Name="projectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__task__projectSta__239E4DCF">
+          <End Role="projectStatus" Type="Self.projectStatus" Multiplicity="0..1" />
+          <End Role="task" Type="Self.task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="projectStatus">
+              <PropertyRef Name="projectStatusID" />
+            </Principal>
+            <Dependent Role="task">
+              <PropertyRef Name="projectStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__task__userID__22AA2996">
+          <End Role="proUser" Type="Self.proUser" Multiplicity="1" />
+          <End Role="task" Type="Self.task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proUser">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="task">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserProje__proje__2B3F6F97">
+          <End Role="project" Type="Self.project" Multiplicity="0..1" />
+          <End Role="UserProject" Type="Self.UserProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project">
+              <PropertyRef Name="projectID" />
+            </Principal>
+            <Dependent Role="UserProject">
+              <PropertyRef Name="projectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserProje__userI__2C3393D0">
+          <End Role="proUser" Type="Self.proUser" Multiplicity="0..1" />
+          <End Role="UserProject" Type="Self.UserProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proUser">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="UserProject">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProWatchModelStoreContainer">
+          <EntitySet Name="project" EntityType="Self.project" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="projectStatus" EntityType="Self.projectStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="proUser" EntityType="Self.proUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="report" EntityType="Self.report" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="task" EntityType="Self.task" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserProject" EntityType="Self.UserProject" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__project__project__1B0907CE" Association="Self.FK__project__project__1B0907CE">
+            <End Role="projectStatus" EntitySet="projectStatus" />
+            <End Role="project" EntitySet="project" />
+          </AssociationSet>
+          <AssociationSet Name="FK__project__userID__1A14E395" Association="Self.FK__project__userID__1A14E395">
+            <End Role="proUser" EntitySet="proUser" />
+            <End Role="project" EntitySet="project" />
+          </AssociationSet>
+          <AssociationSet Name="FK__report__projectS__276EDEB3" Association="Self.FK__report__projectS__276EDEB3">
+            <End Role="projectStatus" EntitySet="projectStatus" />
+            <End Role="report" EntitySet="report" />
+          </AssociationSet>
+          <AssociationSet Name="FK__report__taskID__286302EC" Association="Self.FK__report__taskID__286302EC">
+            <End Role="task" EntitySet="task" />
+            <End Role="report" EntitySet="report" />
+          </AssociationSet>
+          <AssociationSet Name="FK__report__userID__267ABA7A" Association="Self.FK__report__userID__267ABA7A">
+            <End Role="proUser" EntitySet="proUser" />
+            <End Role="report" EntitySet="report" />
+          </AssociationSet>
+          <AssociationSet Name="FK__task__projectID__2D27B809" Association="Self.FK__task__projectID__2D27B809">
+            <End Role="project" EntitySet="project" />
+            <End Role="task" EntitySet="task" />
+          </AssociationSet>
+          <AssociationSet Name="FK__task__projectSta__239E4DCF" Association="Self.FK__task__projectSta__239E4DCF">
+            <End Role="projectStatus" EntitySet="projectStatus" />
+            <End Role="task" EntitySet="task" />
+          </AssociationSet>
+          <AssociationSet Name="FK__task__userID__22AA2996" Association="Self.FK__task__userID__22AA2996">
+            <End Role="proUser" EntitySet="proUser" />
+            <End Role="task" EntitySet="task" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserProje__proje__2B3F6F97" Association="Self.FK__UserProje__proje__2B3F6F97">
+            <End Role="project" EntitySet="project" />
+            <End Role="UserProject" EntitySet="UserProject" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserProje__userI__2C3393D0" Association="Self.FK__UserProje__userI__2C3393D0">
+            <End Role="proUser" EntitySet="proUser" />
+            <End Role="UserProject" EntitySet="UserProject" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProWatchModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="project">
+          <Key>
+            <PropertyRef Name="projectID" />
+          </Key>
+          <Property Name="projectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="projectName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="projectDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="projectMaterial" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fileUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="dateCreated" Type="DateTime" Precision="7" />
+          <Property Name="dateModified" Type="DateTime" Precision="7" />
+          <Property Name="createdBy" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="userID" Type="Int32" Nullable="false" />
+          <Property Name="projectStatusID" Type="Int32" />
+          <NavigationProperty Name="projectStatu" Relationship="Self.FK__project__project__1B0907CE" FromRole="project" ToRole="projectStatus" />
+          <NavigationProperty Name="proUser" Relationship="Self.FK__project__userID__1A14E395" FromRole="project" ToRole="proUser" />
+          <NavigationProperty Name="tasks" Relationship="Self.FK__task__projectID__2D27B809" FromRole="project" ToRole="task" />
+          <NavigationProperty Name="UserProjects" Relationship="Self.FK__UserProje__proje__2B3F6F97" FromRole="project" ToRole="UserProject" />
+        </EntityType>
+        <EntityType Name="projectStatu">
+          <Key>
+            <PropertyRef Name="projectStatusID" />
+          </Key>
+          <Property Name="projectStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="projectStatusName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dateModified" Type="DateTime" Precision="7" />
+          <Property Name="dateCreated" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="projects" Relationship="Self.FK__project__project__1B0907CE" FromRole="projectStatus" ToRole="project" />
+          <NavigationProperty Name="reports" Relationship="Self.FK__report__projectS__276EDEB3" FromRole="projectStatus" ToRole="report" />
+          <NavigationProperty Name="tasks" Relationship="Self.FK__task__projectSta__239E4DCF" FromRole="projectStatus" ToRole="task" />
+        </EntityType>
+        <EntityType Name="proUser">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lastname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dateCreated" Type="DateTime" Precision="7" />
+          <Property Name="dateModified" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="projects" Relationship="Self.FK__project__userID__1A14E395" FromRole="proUser" ToRole="project" />
+          <NavigationProperty Name="reports" Relationship="Self.FK__report__userID__267ABA7A" FromRole="proUser" ToRole="report" />
+          <NavigationProperty Name="tasks" Relationship="Self.FK__task__userID__22AA2996" FromRole="proUser" ToRole="task" />
+          <NavigationProperty Name="UserProjects" Relationship="Self.FK__UserProje__userI__2C3393D0" FromRole="proUser" ToRole="UserProject" />
+        </EntityType>
+        <EntityType Name="report">
+          <Key>
+            <PropertyRef Name="reportID" />
+          </Key>
+          <Property Name="reportID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="taskName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="reportDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="createdBy" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="userID" Type="Int32" Nullable="false" />
+          <Property Name="projectStatusID" Type="Int32" />
+          <Property Name="taskID" Type="Int32" />
+          <NavigationProperty Name="projectStatu" Relationship="Self.FK__report__projectS__276EDEB3" FromRole="report" ToRole="projectStatus" />
+          <NavigationProperty Name="proUser" Relationship="Self.FK__report__userID__267ABA7A" FromRole="report" ToRole="proUser" />
+          <NavigationProperty Name="task" Relationship="Self.FK__report__taskID__286302EC" FromRole="report" ToRole="task" />
+        </EntityType>
+        <EntityType Name="task">
+          <Key>
+            <PropertyRef Name="taskID" />
+          </Key>
+          <Property Name="taskID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="taskName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="observedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="deadlineDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="dateCreated" Type="DateTime" Precision="7" />
+          <Property Name="dateModified" Type="DateTime" Precision="7" />
+          <Property Name="createdBy" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="userID" Type="Int32" Nullable="false" />
+          <Property Name="projectStatusID" Type="Int32" />
+          <Property Name="assignTo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="projectID" Type="Int32" />
+          <NavigationProperty Name="project" Relationship="Self.FK__task__projectID__2D27B809" FromRole="task" ToRole="project" />
+          <NavigationProperty Name="projectStatu" Relationship="Self.FK__task__projectSta__239E4DCF" FromRole="task" ToRole="projectStatus" />
+          <NavigationProperty Name="proUser" Relationship="Self.FK__task__userID__22AA2996" FromRole="task" ToRole="proUser" />
+          <NavigationProperty Name="reports" Relationship="Self.FK__report__taskID__286302EC" FromRole="task" ToRole="report" />
+        </EntityType>
+        <EntityType Name="UserProject">
+          <Key>
+            <PropertyRef Name="upID" />
+          </Key>
+          <Property Name="upID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="createdBy" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="projectID" Type="Int32" />
+          <Property Name="userID" Type="Int32" />
+          <NavigationProperty Name="project" Relationship="Self.FK__UserProje__proje__2B3F6F97" FromRole="UserProject" ToRole="project" />
+          <NavigationProperty Name="proUser" Relationship="Self.FK__UserProje__userI__2C3393D0" FromRole="UserProject" ToRole="proUser" />
+        </EntityType>
+        <Association Name="FK__project__project__1B0907CE">
+          <End Role="projectStatus" Type="Self.projectStatu" Multiplicity="0..1" />
+          <End Role="project" Type="Self.project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="projectStatus">
+              <PropertyRef Name="projectStatusID" />
+            </Principal>
+            <Dependent Role="project">
+              <PropertyRef Name="projectStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__project__userID__1A14E395">
+          <End Role="proUser" Type="Self.proUser" Multiplicity="1" />
+          <End Role="project" Type="Self.project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proUser">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="project">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__task__projectID__2D27B809">
+          <End Role="project" Type="Self.project" Multiplicity="0..1" />
+          <End Role="task" Type="Self.task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project">
+              <PropertyRef Name="projectID" />
+            </Principal>
+            <Dependent Role="task">
+              <PropertyRef Name="projectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserProje__proje__2B3F6F97">
+          <End Role="project" Type="Self.project" Multiplicity="0..1" />
+          <End Role="UserProject" Type="Self.UserProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project">
+              <PropertyRef Name="projectID" />
+            </Principal>
+            <Dependent Role="UserProject">
+              <PropertyRef Name="projectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__report__projectS__276EDEB3">
+          <End Role="projectStatus" Type="Self.projectStatu" Multiplicity="0..1" />
+          <End Role="report" Type="Self.report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="projectStatus">
+              <PropertyRef Name="projectStatusID" />
+            </Principal>
+            <Dependent Role="report">
+              <PropertyRef Name="projectStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__task__projectSta__239E4DCF">
+          <End Role="projectStatus" Type="Self.projectStatu" Multiplicity="0..1" />
+          <End Role="task" Type="Self.task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="projectStatus">
+              <PropertyRef Name="projectStatusID" />
+            </Principal>
+            <Dependent Role="task">
+              <PropertyRef Name="projectStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__report__userID__267ABA7A">
+          <End Role="proUser" Type="Self.proUser" Multiplicity="1" />
+          <End Role="report" Type="Self.report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proUser">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="report">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__task__userID__22AA2996">
+          <End Role="proUser" Type="Self.proUser" Multiplicity="1" />
+          <End Role="task" Type="Self.task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proUser">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="task">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserProje__userI__2C3393D0">
+          <End Role="proUser" Type="Self.proUser" Multiplicity="0..1" />
+          <End Role="UserProject" Type="Self.UserProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proUser">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="UserProject">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__report__taskID__286302EC">
+          <End Role="task" Type="Self.task" Multiplicity="0..1" />
+          <End Role="report" Type="Self.report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="task">
+              <PropertyRef Name="taskID" />
+            </Principal>
+            <Dependent Role="report">
+              <PropertyRef Name="taskID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProWatchEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="projects" EntityType="Self.project" />
+          <EntitySet Name="projectStatus" EntityType="Self.projectStatu" />
+          <EntitySet Name="proUsers" EntityType="Self.proUser" />
+          <EntitySet Name="reports" EntityType="Self.report" />
+          <EntitySet Name="tasks" EntityType="Self.task" />
+          <EntitySet Name="UserProjects" EntityType="Self.UserProject" />
+          <AssociationSet Name="FK__project__project__1B0907CE" Association="Self.FK__project__project__1B0907CE">
+            <End Role="projectStatus" EntitySet="projectStatus" />
+            <End Role="project" EntitySet="projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__project__userID__1A14E395" Association="Self.FK__project__userID__1A14E395">
+            <End Role="proUser" EntitySet="proUsers" />
+            <End Role="project" EntitySet="projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__task__projectID__2D27B809" Association="Self.FK__task__projectID__2D27B809">
+            <End Role="project" EntitySet="projects" />
+            <End Role="task" EntitySet="tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserProje__proje__2B3F6F97" Association="Self.FK__UserProje__proje__2B3F6F97">
+            <End Role="project" EntitySet="projects" />
+            <End Role="UserProject" EntitySet="UserProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__report__projectS__276EDEB3" Association="Self.FK__report__projectS__276EDEB3">
+            <End Role="projectStatus" EntitySet="projectStatus" />
+            <End Role="report" EntitySet="reports" />
+          </AssociationSet>
+          <AssociationSet Name="FK__task__projectSta__239E4DCF" Association="Self.FK__task__projectSta__239E4DCF">
+            <End Role="projectStatus" EntitySet="projectStatus" />
+            <End Role="task" EntitySet="tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__report__userID__267ABA7A" Association="Self.FK__report__userID__267ABA7A">
+            <End Role="proUser" EntitySet="proUsers" />
+            <End Role="report" EntitySet="reports" />
+          </AssociationSet>
+          <AssociationSet Name="FK__task__userID__22AA2996" Association="Self.FK__task__userID__22AA2996">
+            <End Role="proUser" EntitySet="proUsers" />
+            <End Role="task" EntitySet="tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserProje__userI__2C3393D0" Association="Self.FK__UserProje__userI__2C3393D0">
+            <End Role="proUser" EntitySet="proUsers" />
+            <End Role="UserProject" EntitySet="UserProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__report__taskID__286302EC" Association="Self.FK__report__taskID__286302EC">
+            <End Role="task" EntitySet="tasks" />
+            <End Role="report" EntitySet="reports" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProWatchModelStoreContainer" CdmEntityContainer="ProWatchEntities">
+          <EntitySetMapping Name="projects">
+            <EntityTypeMapping TypeName="ProWatchModel.project">
+              <MappingFragment StoreEntitySet="project">
+                <ScalarProperty Name="projectID" ColumnName="projectID" />
+                <ScalarProperty Name="projectName" ColumnName="projectName" />
+                <ScalarProperty Name="projectDescription" ColumnName="projectDescription" />
+                <ScalarProperty Name="projectMaterial" ColumnName="projectMaterial" />
+                <ScalarProperty Name="fileUrl" ColumnName="fileUrl" />
+                <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+                <ScalarProperty Name="dateModified" ColumnName="dateModified" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="projectStatusID" ColumnName="projectStatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="projectStatus">
+            <EntityTypeMapping TypeName="ProWatchModel.projectStatu">
+              <MappingFragment StoreEntitySet="projectStatus">
+                <ScalarProperty Name="projectStatusID" ColumnName="projectStatusID" />
+                <ScalarProperty Name="projectStatusName" ColumnName="projectStatusName" />
+                <ScalarProperty Name="dateModified" ColumnName="dateModified" />
+                <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="proUsers">
+            <EntityTypeMapping TypeName="ProWatchModel.proUser">
+              <MappingFragment StoreEntitySet="proUser">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+                <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+                <ScalarProperty Name="dateModified" ColumnName="dateModified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reports">
+            <EntityTypeMapping TypeName="ProWatchModel.report">
+              <MappingFragment StoreEntitySet="report">
+                <ScalarProperty Name="reportID" ColumnName="reportID" />
+                <ScalarProperty Name="taskName" ColumnName="taskName" />
+                <ScalarProperty Name="reportDescription" ColumnName="reportDescription" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="projectStatusID" ColumnName="projectStatusID" />
+                <ScalarProperty Name="taskID" ColumnName="taskID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tasks">
+            <EntityTypeMapping TypeName="ProWatchModel.task">
+              <MappingFragment StoreEntitySet="task">
+                <ScalarProperty Name="taskID" ColumnName="taskID" />
+                <ScalarProperty Name="taskName" ColumnName="taskName" />
+                <ScalarProperty Name="observedBy" ColumnName="observedBy" />
+                <ScalarProperty Name="deadlineDate" ColumnName="deadlineDate" />
+                <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+                <ScalarProperty Name="dateModified" ColumnName="dateModified" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="projectStatusID" ColumnName="projectStatusID" />
+                <ScalarProperty Name="assignTo" ColumnName="assignTo" />
+                <ScalarProperty Name="projectID" ColumnName="projectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProjects">
+            <EntityTypeMapping TypeName="ProWatchModel.UserProject">
+              <MappingFragment StoreEntitySet="UserProject">
+                <ScalarProperty Name="upID" ColumnName="upID" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="projectID" ColumnName="projectID" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

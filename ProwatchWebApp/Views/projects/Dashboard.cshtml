@@ -1,0 +1,161 @@
+﻿@model PagedList.IPagedList<ProwatchWebApp.Models.project>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_ProWatchLayout.cshtml";
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Dashboard
+            <small>Version 2.0</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Dashboard</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <!-- Info boxes -->
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-aqua"><i class="fa fa-tasks"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">My Task</span>
+                        <span class="info-box-number">@ViewBag.Notification</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-red"><i class="fa fa-briefcase"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Projects</span>
+                        <span class="info-box-number">@ViewBag.allProject</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <!-- fix for small devices only -->
+            <div class="clearfix visible-sm-block"></div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-green"><i class="fa fa-list-alt"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Report</span>
+                        <span class="info-box-number">@ViewBag.report</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-yellow"><i class="fa fa-tasks"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Tasks</span>
+                        <span class="info-box-number">@ViewBag.finishedProject</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+
+    @using (Html.BeginForm("Index", "projects", FormMethod.Get))
+    {
+        <p>
+            Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+            <input type="submit" value="Search" />
+        </p>
+    }
+    <table id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>@Html.ActionLink("Project Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })</th>
+                <th>@Html.ActionLink("Project Status", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })</th>
+                <th>Material Incurred</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+            {
+            <tbody>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.projectName)
+                    </td>
+                    <td>
+                        @if (Html.DisplayFor(modelItem => item.projectStatu.projectStatusName).ToString() == "Completed")
+                {
+                            <i class="fa fa-check" style="color:green">@Html.DisplayFor(modelItem => item.projectStatu.projectStatusName)</i>
+
+
+                        }
+                        @if (Html.DisplayFor(modelItem => item.projectStatu.projectStatusName).ToString() == "Not started")
+                {
+                            <i class="fa fa-warning" style="color:red">@Html.DisplayFor(modelItem => item.projectStatu.projectStatusName)</i>
+                        }
+
+
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.projectMaterial)</td>
+                    <td>
+                        @{ var id = item.projectID;
+                            <i><a class="fa fa-pencil-square-o" aria-hidden="true" href="@Url.Content( "Edit/" + id)"></a></i>
+                        }
+                    </td>
+                </tr>
+            </tbody>
+                            }
+        <tfoot>
+            <tr>
+
+                <th>Project Name</th>
+                <th>Project Status</th>
+                <th>Material Incurred</th>
+                <th>Edit</th>
+            </tr>
+        </tfoot>
+    </table>
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Homepage",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+
+    <script type="text/javascript">
+        $('#example6')
+            .progress('increment')
+            ;
+        $('#example6')
+            .progress({
+                label: 'ratio',
+                text: {
+                    ratio: '{value} of {total}'
+                }
+            });
+        $('#example5')
+            .progress('increment')
+            ;
+        $('#example5')
+            .progress({
+                label: 'ratio',
+                text: {
+                    ratio: '{value} of {total}'
+                }
+            })
+            ;</script>
+</div>
