@@ -76,46 +76,22 @@
     <table id="example1" class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th>@Html.ActionLink("Project Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })</th>
-                <th>@Html.ActionLink("Project Status", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })</th>
+				<th>Project Name</th>
+				<th>Projeect Status</th>
+                @*<th>@Html.ActionLink("Project Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })</th>
+                <th>@Html.ActionLink("Project Status", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })</th>*@
                 
                 <th>Name</th>
             </tr>
         </thead>
 		
-       @foreach (var item in Model)
-            {
-		
-            <tbody>
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.projectName)
-                    </td>
-                    <td>
-                        @if (Html.DisplayFor(modelItem => item.projectStatu.projectStatusName).ToString() == "Completed")
-                {
-                            <i class="fa fa-check" style="color:green">@Html.DisplayFor(modelItem => item.projectStatu.projectStatusName)</i>
-
-
-                        }
-                        @if (Html.DisplayFor(modelItem => item.projectStatu.projectStatusName).ToString() == "In-progress")
-                {
-                            <i class="fa fa-warning" style="color:red">@Html.DisplayFor(modelItem => item.projectStatu.projectStatusName)</i>
-                        }
-
-
-                    </td>
-					<td>
-						@Html.DisplayFor(modelItem => item.proUser.firstname)
-					</td>
-                </tr> 
-
+		<tbody>
 				<tr>
 					<td>
 						5km Cancer Walk
 					</td>
 					<td style="color:red">
-						<option>In-progress</option>
+						In-progress
 
 					</td>
 
@@ -202,9 +178,119 @@
 						Treasure
 					</td>
 				</tr>
-            </tbody>
-                            }
-        <tfoot>
+
+		<tr>
+			<td>
+				Apo land purchase
+			</td>
+			<td style="color:red">
+				In-progress
+
+			</td>
+
+			<td>
+				Kenneth
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Road Construction
+			</td>
+			<td style="color:green">
+				Complete
+
+			</td>
+
+			<td>
+				Muyiwa
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Procurement of office equipment
+			</td>
+			<td style="color:red">
+				In-progress
+
+			</td>
+
+			<td>
+				Treasure
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Accra STEM Camp
+			</td>
+			<td style="color:green">
+				Complete
+
+			</td>
+
+			<td>
+				Treasure
+			</td>
+		</tr>
+
+			<tr>
+				<td>
+					Maternal Health awareness campaign
+				</td>
+				<td style="color:green">
+					In-progress
+
+				</td>
+
+				<td>
+					Treasure
+				</td>
+			</tr>
+			<tr>
+			<td>
+				Accra STEM Camp
+			</td>
+			<td style="color:green">
+				Complete
+
+			</td>
+
+			<td>
+				Treasure
+			</td>
+		</tr>
+
+@*@foreach (var item in Model)
+{
+
+	<tbody>
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.projectName)
+			</td>
+			<td>
+				@if (Html.DisplayFor(modelItem => item.projectStatu.projectStatusName).ToString() == "Completed")
+				{
+					<i class="fa fa-check" style="color:green">@Html.DisplayFor(modelItem => item.projectStatu.projectStatusName)</i>
+
+
+				}
+				@if (Html.DisplayFor(modelItem => item.projectStatu.projectStatusName).ToString() == "In-progress")
+				{
+					<i class="fa fa-warning" style="color:red">@Html.DisplayFor(modelItem => item.projectStatu.projectStatusName)</i>
+				}
+
+
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.proUser.firstname)
+			</td>
+		</tr>
+
+	</tbody> 
+}*@
+      </tbody>
+		<tfoot>
             
     </table>
     
