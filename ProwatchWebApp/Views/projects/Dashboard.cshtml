@@ -83,8 +83,9 @@
             </tr>
         </thead>
 		
-        @foreach (var item in Model)
+       @foreach (var item in Model)
             {
+		
             <tbody>
                 <tr>
                     <td>
@@ -107,7 +108,100 @@
 					<td>
 						@Html.DisplayFor(modelItem => item.proUser.firstname)
 					</td>
-                </tr>
+                </tr> 
+
+				<tr>
+					<td>
+						5km Cancer Walk
+					</td>
+					<td style="color:red">
+						<option>In-progress</option>
+
+					</td>
+
+					<td>
+						Sarah
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Chi Logistics
+					</td>
+					<td style="color:green">
+						Complete
+
+					</td>
+
+					<td>
+						Festus
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Fundraiser
+					</td>
+					<td style="color:green">
+						Complete
+
+					</td>
+
+					<td>
+						Ken
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						ICT Empowerment skill program for rural dwellers
+					</td>
+					<td style="color:green">
+						Complete
+
+					</td>
+
+					<td>
+						Sarah
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Animation
+					</td>
+					<td style="color:green">
+						Complete
+
+					</td>
+
+					<td>
+						Festus
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Tekheroes Boot Camp
+					</td>
+					<td style="color:green">
+						Complete
+
+					</td>
+
+					<td>
+						Web
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Accra STEM Camp
+					</td>
+					<td style="color:green">
+						Complete
+
+					</td>
+
+					<td>
+						Treasure
+					</td>
+				</tr>
             </tbody>
                             }
         <tfoot>
