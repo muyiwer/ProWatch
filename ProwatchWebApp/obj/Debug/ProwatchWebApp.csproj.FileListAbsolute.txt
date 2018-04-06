@@ -72,8 +72,6 @@ C:\Users\user\Documents\Visual Studio 2017\Projects\ProwatchWebApp\ProwatchWebAp
 C:\Users\user\Documents\Visual Studio 2017\Projects\ProwatchWebApp\ProwatchWebApp\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\user\Documents\Visual Studio 2017\Projects\ProwatchWebApp\ProwatchWebApp\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\user\Documents\Visual Studio 2017\Projects\ProwatchWebApp\ProwatchWebApp\bin\Microsoft.AI.Web.xml
-C:\Users\user\Desktop\ProWatch_live\ProwatchWebApp\obj\Debug\ProwatchWebApp.dll
-C:\Users\user\Desktop\ProWatch_live\ProwatchWebApp\obj\Debug\ProwatchWebApp.pdb
 C:\Users\user\Desktop\ProWatch_live\ProwatchWebApp\bin\ApplicationInsights.config
 C:\Users\user\Desktop\ProWatch_live\ProwatchWebApp\bin\roslyn\csc.exe
 C:\Users\user\Desktop\ProWatch_live\ProwatchWebApp\bin\roslyn\csc.exe.config
@@ -147,3 +145,5 @@ C:\Users\user\Desktop\ProWatch_live\ProwatchWebApp\bin\Microsoft.AI.ServerTeleme
 C:\Users\user\Desktop\ProWatch_live\ProwatchWebApp\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\user\Desktop\ProWatch_live\ProwatchWebApp\bin\Microsoft.AI.Web.xml
 C:\Users\user\Desktop\ProWatch_live\ProwatchWebApp\obj\Debug\ProwatchWebApp.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\ProWatch_live\ProwatchWebApp\obj\Debug\ProwatchWebApp.dll
+C:\Users\user\Desktop\ProWatch_live\ProwatchWebApp\obj\Debug\ProwatchWebApp.pdb
