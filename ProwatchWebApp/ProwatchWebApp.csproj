@@ -158,7 +158,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\projectsController.cs" />
     <Compile Include="Controllers\proUsersController.cs" />
-    <Compile Include="Content\reportsController.cs" />
+    <Compile Include="Controllers\reportsController.cs" />
     <Compile Include="Controllers\tasksController.cs" />
     <Compile Include="Controllers\UserProjectsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -230,9 +230,9 @@
     <Content Include="PorWatchFrontEnd\fonts\fontawesome-webfont.svg" />
     <Content Include="PorWatchFrontEnd\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="PorWatchFrontEnd\images\la.png" />
-    <Content Include="PorWatchFrontEnd\images\ProWatch Logo.jpg" />
     <Content Include="PorWatchFrontEnd\images\PROWATCH.png" />
     <Content Include="PorWatchFrontEnd\images\PROWATCH2.png" />
+    <Content Include="PorWatchFrontEnd\images\ProWatchLogo.png" />
     <Content Include="PorWatchFrontEnd\js\bootstrap-datepicker.js" />
     <Content Include="PorWatchFrontEnd\js\bootstrap.js" />
     <Content Include="PorWatchFrontEnd\js\bootstrap.min.js" />
@@ -1028,17 +1028,17 @@
     <Content Include="Views\tasks\Details.cshtml" />
     <Content Include="Views\tasks\Edit.cshtml" />
     <Content Include="Views\tasks\Index.cshtml" />
-    <Content Include="Views\reports\Create.cshtml" />
-    <Content Include="Views\reports\Delete.cshtml" />
-    <Content Include="Views\reports\Details.cshtml" />
-    <Content Include="Views\reports\Edit.cshtml" />
-    <Content Include="Views\reports\Index.cshtml" />
     <Content Include="Views\projects\AddUserToProject.cshtml" />
     <Content Include="Views\UserProjects\Create.cshtml" />
     <Content Include="Views\UserProjects\Delete.cshtml" />
     <Content Include="Views\UserProjects\Details.cshtml" />
     <Content Include="Views\UserProjects\Edit.cshtml" />
     <Content Include="Views\UserProjects\Index.cshtml" />
+    <Content Include="Views\reports\Create.cshtml" />
+    <Content Include="Views\reports\Delete.cshtml" />
+    <Content Include="Views\reports\Details.cshtml" />
+    <Content Include="Views\reports\Edit.cshtml" />
+    <Content Include="Views\reports\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

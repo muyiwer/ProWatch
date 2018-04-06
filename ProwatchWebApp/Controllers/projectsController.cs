@@ -63,10 +63,11 @@ namespace ProwatchWebApp.Controllers
 
             int pageSize = 3;
             int pageNumber = (page ?? 1);
-           
 
 
-            var allProject = db.tasks.Where(y=>y.assignTo==firstname).Select(y=>y.projectID).Count();
+			var userId = db.proUsers.Where(y => y.email == email).Select(y => y.userID).FirstOrDefault();
+			
+            var allProject = db.projects.Where(y=>y.userID==userId).Select(y=>y.projectStatusID).Count();
             ViewBag.allProject = allProject;
 
             var projectStatusID = db.projectStatus.Where(y => y.projectStatusID == 1).Select(y => y.projectStatusID).FirstOrDefault();
@@ -76,10 +77,13 @@ namespace ProwatchWebApp.Controllers
             var projectStatusID2 = db.projectStatus.Where(y => y.projectStatusID == 2).Select(y => y.projectStatusID).FirstOrDefault();
             var ongoingProject = db.projects.Where(y => y.projectStatusID == projectStatusID2).Count();
             ViewBag.ongoingProject = ongoingProject;
-            var report = db.reports.Count();
+            var report = db.reports.Where(y=>y.userID==userId).Count();
             ViewBag.report = report;
-            var notification = db.tasks.Where(y => y.assignTo == email).Count();
-            ViewBag.Notification = notification;
+			var pendingTask = db.UserProjects.Where(y => y.userID == userId).Select(y => y.projectID).FirstOrDefault();
+			var task = db.tasks.Where(y => y.projectID == pendingTask).Select(y => y.projectStatusID).Count();
+			var notification = db.tasks.Where(y => y.assignTo == email).Count();
+            ViewBag.Notification =notification;
+			ViewBag.Task = task;
             return View(students.ToPagedList(pageNumber, pageSize));
            
 

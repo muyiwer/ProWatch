@@ -12,10 +12,10 @@ namespace ProwatchWebApp.Controllers
 {
     public class reportsController : Controller
     {
-		private ProWatchEntities1 db = new ProWatchEntities1();
+        private ProWatchEntities1 db = new ProWatchEntities1();
 
-		// GET: reports
-		public ActionResult Index()
+        // GET: reports
+        public ActionResult Index()
         {
             var reports = db.reports.Include(r => r.projectStatu).Include(r => r.proUser).Include(r => r.task);
             return View(reports.ToList());
@@ -47,17 +47,22 @@ namespace ProwatchWebApp.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-       // [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "reportID,taskName,reportDescription,createdBy,userID,projectStatusID,taskID")] report report)
+      //  [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "taskName,reportDescription")] report report)
         {
             if (ModelState.IsValid)
             {
-                db.reports.Add(report);
+				var user = User.Identity.Name;
+				var userid = db.proUsers.Where(y => y.email == user).Select(y => y.userID).FirstOrDefault();
+				report.userID = userid;
+				var taskID = db.tasks.Where(y => y.taskName == report.taskName).Select(y => y.taskID).FirstOrDefault();
+				report.taskID = taskID;
+				db.reports.Add(report);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-           
+            
             return View(report);
         }
 

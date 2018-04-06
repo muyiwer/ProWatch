@@ -5,60 +5,67 @@
     Layout = "~/Views/Shared/_ProWatchLayout.cshtml";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.taskName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.reportDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.createdBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.projectStatu.projectStatusName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.proUser.firstname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.task.taskName)
-        </th>
-        <th></th>
-    </tr>
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+	<div class="row">
+		<ol class="breadcrumb">
+			<li>
+				<a href="index.html">
+					<em class="fa fa-home"></em>
+				</a>
+			</li>
+			<li class="active">General Report</li>
+		</ol>
+	</div><!--/.row-->
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.taskName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.reportDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.createdBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.projectStatu.projectStatusName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.proUser.firstname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.task.taskName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.reportID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.reportID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.reportID })
-        </td>
-    </tr>
-}
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">General Report</h1>
+		</div>
+	</div><!--/.row-->
 
-</table>
+	<p>
+		@Html.ActionLink("Create New", "Create")
+	</p>
+	<table class="table">
+		<tr>
+
+			<th>
+				Report Description
+			</th>
+
+			<th>
+				Status
+			</th>
+			<th>
+				Name
+			</th>
+			<th>
+				Task
+			</th>
+
+		</tr>
+
+		@foreach (var item in Model)
+		{
+			<tr>
+
+				<td>
+					@Html.DisplayFor(modelItem => item.reportDescription)
+				</td>
+
+				<td>
+					@Html.DisplayFor(modelItem => item.projectStatu.projectStatusName)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.proUser.firstname)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.task.taskName)
+				</td>
+
+			</tr>
+		}
+
+	</table>
+	</div>

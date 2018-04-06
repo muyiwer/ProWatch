@@ -1,0 +1,172 @@
+<HTML>
+	<head>
+    <link rel="stylesheet" href="css/homepage.css">
+		<link rel="stylesheet" href="css/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="css/icon.min.css">
+    <link rel="stylesheet" href="css/progress.css">
+
+	</head>
+
+	<body>
+    
+
+   <header>
+
+ 
+  <div style="height: 50%" class="ui stackable menu blue inverted  segment">
+  
+    <h1 style="color: indigo">ProWatch</h1>
+    <div id="mcon" class="ui container">
+     <div class="three wide column">
+      <div class="ui input" style="width: 40%; height: 20%"><input type="text" placeholder="Search..."></div>
+    </div>
+  
+  
+      <div class="three wide column">
+  <i class="bell icon"></i>
+ </div>
+  
+    
+    <div class="ui simple dropdown item">
+      <img src="img/placeholder-4.png" class="ui circular image" style="height:20px">
+      <i class="dropdown icon"></i>
+      <div class="menu">
+        <a class="item" href="editprofile.html"><i class="edit icon"></i> Edit Profile</a>
+        <a class="item"><i class="settings icon"></i> <class="ui header">
+  Account Settings
+</a>
+         <a class="item"><i class="globe icon"></i> Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
+
+</header>
+
+ 
+ <div id="lst" class="ui  vertical segment">
+   <div class="ui grid">
+    <div class="three wide column">
+  <div id="lste"class="ui  vertical menu">
+
+     <div class="item">
+    <div class="ui simple dropdown item">
+    <div class="item">Home</div>
+   
+  </div>
+    <div class="item">
+    <div class="ui simple dropdown item">
+    <div class="item">Project</div>
+    <div class="menu">
+      <a class="item">Add New Project</a>
+      <a class="item">Progress Tracking</a>
+      <a class="item">File Upload</a>
+      <a class="item">Information on material incurred</a>
+    </div>
+  </div>
+  </div>
+  <div class="item">
+    <div class="ui simple dropdown item">
+    <div class="item">Task Manager</div>
+   
+  </div>
+</div>
+  <div class="item">
+    <div class="ui simple dropdown item">
+    <div class="item">Report</div>
+    <div class="menu">
+      <a class="item">New Report</a>
+      <a class="item">Custom Report</a>
+      <a class="item">Generate Report</a>
+    </div>
+  </div>
+  </div>
+
+</div>
+ </div>
+</div>
+
+<div class="right item">
+       <div class="thirteen wide column">
+      
+<table id="lstee"class="ui celled table">
+  <thead>
+    <tr>
+      <th>S/N</th>
+      <th>Project Name</th>
+      <th>Status</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    
+    <tr>
+      <td>1</td>
+      <td>Agape Mobile App Develpment</td>
+      <td><div class="ui progress" data-value="50" data-total="100" id="example6">
+  <div class="bar">
+    <div class="progress"></div>
+  </div>
+  <div class="label">In progress</div>
+
+</div></td>
+      <td><i class="red attention icon">Incomplete</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Fruitsy Web development</td>
+      <td>
+  <div class="ui progress" data-value="100" data-total="100" id="example5">
+  <div class="bar">
+    <div class="progress"></div>
+  </div>
+  <div class="label">Complete</div>
+</div>
+  
+</td>
+      <td><i class="green attention icon"></i>  Successful</td>
+    </tr>
+  </tbody>
+</table>
+
+
+  </div>
+  </div>  
+   </div>
+    </div>
+  </div>
+<p></p>
+<p></p>
+</div>
+<div><footer class="ui blue inverted center sizer vertical segment">@ Copyright 2018</footer></div>
+<script src="js/jquery.min.js"></script>
+<script src="js/semantic.min.js"></script>
+<script src="js/progress.js"></script>
+<script type="text/javascript">
+$('#example6')
+  .progress('increment')
+;
+$('#example6')
+  .progress({
+    label: 'ratio',
+    text: {
+      ratio: '{value} of {total}'
+    }
+  });
+  $('#example5')
+  .progress('increment')
+;
+  $('#example5')
+  .progress({
+    label: 'ratio',
+    text: {
+      ratio: '{value} of {total}'
+    }
+  })
+;</script>
+	</body>
+</HTML>

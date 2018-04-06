@@ -42,17 +42,10 @@
         <tfoot>
             <tr>
 
-                <th>Task</th>
-                <th>Status</th>
-                <th>Assigned To</th>
-                <th>Update</th>
             </tr>
         </tfoot>
     </table>
-    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-
-    @Html.PagedListPager(Model, page => Url.Action("Homepage",
-    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+ 
 </div>
 
 

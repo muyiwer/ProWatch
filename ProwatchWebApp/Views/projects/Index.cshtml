@@ -18,8 +18,6 @@
             <tr>
                 <th>@Html.ActionLink("Project Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })</th>
                 <th>@Html.ActionLink("Project Status", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })</th>
-                <th>Material Incurred</th>
-                <th>Edit</th>
             </tr>
         </thead>
         @foreach (var item in Model)
@@ -45,26 +43,17 @@
                     <td>@Html.DisplayFor(modelItem => item.projectMaterial)</td>
                     <td>
                         @{ var id = item.projectID;
-                        <i><a class="fa fa-pencil-square-o" aria-hidden="true" href="@Url.Content( "Edit/" + id)"></a></i>
+                        
                         }
                     </td>
                 </tr>
             </tbody>
         }
         <tfoot>
-            <tr>
-
-                <th>Project Name</th>
-                <th>Project Status</th>
-                <th>Material Incurred</th>
-                <th>Edit</th>
-            </tr>
+          
         </tfoot>
     </table>
-    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-
-    @Html.PagedListPager(Model, page => Url.Action("Homepage",
-    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+    
 </div>
 
 
